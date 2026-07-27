@@ -1,0 +1,6 @@
+{
+  "name": "SamsonIA",
+  "description": "Futuristic AI suite featuring chat, image generation, video creation studio, voice synthesis, and admin dashboard.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
