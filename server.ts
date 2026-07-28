@@ -71,7 +71,7 @@ app.post('/api/chat', async (req, res) => {
   try {
     const {
       message,
-      model = 'google/gemini-2.0-flash-exp',
+      model = 'google/gemini-2.0-flash',
       systemPrompt,
       history = []
     } = req.body;
