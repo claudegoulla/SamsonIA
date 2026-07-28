@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import { createServer as createViteServer } from 'vite';
 import { GoogleGenAI, Modality } from '@google/genai';
-
+import OpenAI from 'openai';
 async function startServer() {
   const app = express();
   const PORT = 3000;
@@ -24,7 +24,12 @@ async function startServer() {
       },
     });
   };
-
+const getOpenRouterClient = () => {
+  return new OpenAI({
+    apiKey: process.env.OPENROUTER_API_KEY,
+    baseURL: 'https://openrouter.ai/api/v1',
+  });
+};
   // 1. Health Check Endpoint
   app.get('/api/health', (req, res) => {
     res.json({
