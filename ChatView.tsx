@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 import { ChatSession, ChatMessage, UserSettings } from '../types';
 import { SpeechHandler, speakText, stopSpeaking } from '../lib/speech';
-
+import { getSamsonMemory, saveSamsonMemory } from '../lib/storage';
 interface ChatViewProps {
   sessions: ChatSession[];
   activeSessionId: string;
@@ -52,7 +52,7 @@ export const ChatView: React.FC<ChatViewProps> = ({
   const [copiedMsgId, setCopiedMsgId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [speakingMsgId, setSpeakingMsgId] = useState<string | null>(null);
-
+const [memory, setMemory] = useState<string[]>(getSamsonMemory());
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const activeSession = sessions.find((s) => s.id === activeSessionId) || sessions[0];
@@ -66,6 +66,11 @@ export const ChatView: React.FC<ChatViewProps> = ({
     if (!inputMessage.trim() || isGenerating) return;
 
     const text = inputMessage;
+
+    const newMemory = [...memory, text];
+    setMemory(newMemory);
+    saveSamsonMemory(newMemory);
+
     setInputMessage('');
     await onSendMessage(activeSession?.id || '', text, selectedModel);
   };
