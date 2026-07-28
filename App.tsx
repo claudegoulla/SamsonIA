@@ -12,7 +12,7 @@ import {
   getStoredVideos, 
   saveStoredVideos, 
   getStoredLogs, 
-  addSystemLog 
+ addSystemLog
 } from './lib/storage';
 import { Sidebar } from './components/Sidebar';
 import { Header } from './components/Header';
