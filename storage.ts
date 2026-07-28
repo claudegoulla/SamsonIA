@@ -4,6 +4,7 @@ const STORAGE_KEYS = {
   CURRENT_USER: 'samson_current_user',
   USERS: 'samson_registered_users',
   CHAT_SESSIONS: 'samson_chat_sessions',
+  MEMORY: 'samson_memory',
   GENERATED_IMAGES: 'samson_generated_images',
   GENERATED_VIDEOS: 'samson_generated_videos',
   SETTINGS: 'samson_user_settings',
@@ -249,4 +250,26 @@ export function addSystemLog(log: Omit<SystemLog, 'id' | 'timestamp'>): SystemLo
   const updated = [newLog, ...current].slice(0, 50);
   localStorage.setItem(STORAGE_KEYS.SYSTEM_LOGS, JSON.stringify(updated));
   return newLog;
+}
+
+export function getSamsonMemory(): string[] {
+  const memory = localStorage.getItem(STORAGE_KEYS.MEMORY);
+
+  if (memory) {
+    try {
+      return JSON.parse(memory);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  localStorage.setItem(STORAGE_KEYS.MEMORY, JSON.stringify([]));
+  return [];
+}
+
+export function saveSamsonMemory(memory: string[]): void {
+  localStorage.setItem(
+    STORAGE_KEYS.MEMORY,
+    JSON.stringify(memory)
+  );
 }
