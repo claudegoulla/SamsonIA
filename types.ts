@@ -109,3 +109,9 @@ export interface AdminStats {
   tokenChartData: { time: string; tokens: number; requests: number }[];
   modelPopularity: { name: string; percentage: number; color: string }[];
 }
+export interface Memory {
+  id: string;
+  title: string;
+  content: string;
+  createdAt: string;
+}
