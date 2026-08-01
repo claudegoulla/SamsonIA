@@ -21,9 +21,9 @@ import {
   RefreshCw,
   Share2
 } from 'lucide-react';
-import { ChatSession, ChatMessage, UserSettings } from '../types';
-import { SpeechHandler, speakText, stopSpeaking } from '../lib/speech';
-import { getSamsonMemory, saveSamsonMemory } from '../lib/storage';
+import { ChatSession, ChatMessage, UserSettings } from './types';
+import { SpeechHandler, speakText, stopSpeaking } from './speech';
+import { getSamsonMemory, saveSamsonMemory } from './storage';
 interface ChatViewProps {
   sessions: ChatSession[];
   activeSessionId: string;
