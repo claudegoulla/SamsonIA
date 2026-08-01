@@ -11,8 +11,8 @@ import {
   Sparkles,
   Check
 } from 'lucide-react';
-import { User } from '../types';
-import { DEFAULT_USER } from '../lib/storage';
+import { User } from './types';
+import { DEFAULT_USER } from './storage';
 
 interface AuthModalProps {
   isOpen: boolean;
