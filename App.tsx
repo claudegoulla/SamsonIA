@@ -14,18 +14,18 @@ import {
   getStoredLogs, 
  addSystemLog
 } from './storage';
-import { Sidebar } from './components/Sidebar';
-import { Header } from './components/Header';
-import { HomePage } from './components/HomePage';
-import { ChatView } from './components/ChatView';
-import { ImageStudioView } from './components/ImageStudioView';
-import { VideoStudioView } from './components/VideoStudioView';
-import { HistoryView } from './components/HistoryView';
-import { ProfileView } from './components/ProfileView';
-import { SettingsView } from './components/SettingsView';
-import { AdminDashboardView } from './components/AdminDashboardView';
-import { AuthModal } from './components/AuthModal';
-import { speakText } from './lib/speech';
+import { Sidebar } from './Sidebar';
+import { Header } from './Header';
+import { HomePage } from './HomePage';
+import { ChatView } from './ChatView';
+import { ImageStudioView } from './ImageStudioView';
+import { VideoStudioView } from './VideoStudioView';
+import { HistoryView } from './HistoryView';
+import { ProfileView } from './ProfileView';
+import { SettingsView } from './SettingsView';
+import { AdminDashboardView } from './AdminDashboardView';
+import { AuthModal } from './AuthModal';
+import { speakText } from './speech';
 
 export default function App() {
   const [activeView, setActiveView] = useState<ActiveView>('home');
